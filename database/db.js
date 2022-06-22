@@ -1,14 +1,15 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 
-const database =  proccess.env.DB-Local
-const connectDb = async() => {
+const connectDB = async() => {
+  const url = process.env.DBLocal;
+
   try {
-    await mongoose.connect('database')
-    console.log('Db conectada')
+    await mongoose.connect(url)
+    console.log('DB conectada exitosamente')
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
 }
 
-connectDb()
+connectDB()
