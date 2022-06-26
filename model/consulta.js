@@ -5,4 +5,4 @@ const consulta = new Schema({
     descripcion: String,
 })
 
-module.exports('Consulta',consulta)
+module.exports = model('Consultas',consulta)

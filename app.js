@@ -9,6 +9,7 @@ const cors = require('cors')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
+const consultaRouter = require('./routes/consultas');
 
 const app = express();
 
@@ -23,13 +24,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter)
-app.use('/login', loginRouter)
+app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+app.use('/consultas', consultaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+async function main(){
+  const port = 8000
+  await app.listen(port);
+  console.log('server corriendo en puerto:' + port)
+}
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -42,4 +50,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+main()
 module.exports = app;
