@@ -22,4 +22,25 @@ const createConsulta = async(req,res)=> {
     }
 }
 
-module.exports = {createConsulta}
+const buscarConsulta = async(req,res)=>{
+    const {text} = req.body
+
+    try{
+        const consultas = await Consulta.find({})
+        console.log(consultas)
+        console.log(text)
+
+        const result = consultas.filter(con => con.descripcion.indexOf(text) !== -1)
+        res.json({
+            message: 'Consultas obtenidos exitosamente',
+            result
+        })
+    }catch(error){
+        res.json({
+            message: 'ERROR AL BUSCAR CONSULTAS',
+            error: consultas
+        })
+    }
+}
+
+module.exports = {createConsulta, buscarConsulta}

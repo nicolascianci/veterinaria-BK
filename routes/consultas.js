@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router();
 
-const { createConsulta } = require('../controllers/consultas')
+const { createConsulta, buscarConsulta } = require('../controllers/consultas')
 
 router
-    .post('/', createConsulta);
+    .post('/', createConsulta)
+    .get('/', buscarConsulta)
 
     module.exports = router;
