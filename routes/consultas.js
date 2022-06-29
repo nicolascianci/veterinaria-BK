@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router();
 
-const { createConsulta, buscarConsulta } = require('../controllers/consultas')
+const { createConsulta, buscarConsultaText, buscarTodasConsultas } = require('../controllers/consultas')
 
 router
     .post('/', createConsulta)
-    .get('/', buscarConsulta)
+    .get('/text', buscarConsultaText)
+    .get('/', buscarTodasConsultas)
 
     module.exports = router;
