@@ -27,9 +27,7 @@ const buscarConsultaText = async(req,res)=>{
     const {text} = req.body
 
     try{
-        const consultas = await Consulta.find({})
-        console.log(consultas)
-        console.log(text)
+        const consultas = await Consulta.find({})       
 
         const result = consultas.filter(con => con.motivo.indexOf(text) !== -1)
         res.json({
@@ -48,8 +46,7 @@ const buscarTodasConsultas = async(req,res)=>{
     
     try{
         const consultas = await Consulta.find({})
-        console.log(consultas)
-                
+                        
         res.json({
             message: 'Consultas obtenidos exitosamente',
             consultas
@@ -64,4 +61,22 @@ const buscarTodasConsultas = async(req,res)=>{
     }
 }
 
-module.exports = {createConsulta, buscarConsultaText,buscarTodasConsultas}
+const deleteConsulta = async(req,res) =>{
+    const {id} = req.body
+    try{
+        console.log(id)
+        const consultas = await Consulta.findByIdAndDelete({_id:id})
+        res.json({
+            message: 'Consultas eliminada exitosamente',
+            consultas
+        })
+    }
+    catch(error){
+        res.json({
+            message: 'ERROR AL BUSCAR CONSULTAS',
+            error
+        })
+    }
+}
+
+module.exports = {createConsulta, buscarConsultaText,buscarTodasConsultas, deleteConsulta}
