@@ -9,6 +9,7 @@ const createConsulta = async(req,res)=> {
             email,
             motivo,
             descripcion,
+            resulta: false,
         })
 
         await newConsulta.save()
