@@ -9,12 +9,13 @@ const createConsulta = async(req,res)=> {
             email,
             motivo,
             descripcion,
-            resulta: false,
+            resuelta: false,
         })
 
         await newConsulta.save()
 
         res.json({
+            newConsulta,
             message:"Consulta Creada"
         })
     } catch(error){
@@ -80,4 +81,34 @@ const deleteConsulta = async(req,res) =>{
     }
 }
 
-module.exports = {createConsulta, buscarConsultaText,buscarTodasConsultas, deleteConsulta}
+
+const ResponderConsulta = async(req,res) => {
+    const {_id,email,motivo,descripcion,resuelta} = req.body
+    
+    try {
+        
+        const consultas = await Consulta.findByIdAndUpdate(_id, {email,motivo,descripcion,resuelta: true})        
+        
+        if (consultas){            
+            res.json({
+                message: 'Consultas Actualizada exitosamente',
+                consultas
+            })
+        }
+        else{            
+            
+            res.json({
+                message: 'No se encontro consulta',                
+            })
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.json({
+            message: 'No se pudo actualizar la consulta',            
+        })
+    }
+    
+}
+
+module.exports = {createConsulta, buscarConsultaText,buscarTodasConsultas, deleteConsulta, ResponderConsulta}
