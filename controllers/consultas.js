@@ -45,7 +45,14 @@ const buscarConsultaText = async(req,res)=>{
 }
 
 const buscarTodasConsultas = async(req,res)=>{
-    
+    // const verify = jwt.verify(token, 'comision24i');
+    // if(!verify){
+    //     return res.json({
+    //         status: 400,
+    //         message: "Error en el token"
+    //     })
+    // }
+
     try{
         const consultas = await Consulta.find({})
                         
