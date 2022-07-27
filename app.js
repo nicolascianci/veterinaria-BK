@@ -33,11 +33,11 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-async function main(){
-  const port = 8000
-  await app.listen(port);
-  console.log('server corriendo en puerto:' + port)
-}
+// async function main(){
+//   const port = 8000
+//   await app.listen(port);
+//   console.log('server corriendo en puerto:' + port)
+// }
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -50,5 +50,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-main()
+
 module.exports = app;
