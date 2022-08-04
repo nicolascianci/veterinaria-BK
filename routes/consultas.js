@@ -9,6 +9,6 @@ router
     .get('/text', buscarConsultaText)
     .get('/', buscarTodasConsultas)
     .delete('/', deleteConsulta)
-    .put('/actualizar',jwtValidator, ResponderConsulta)
+    .put('/actualizar', ResponderConsulta)
 
     module.exports = router;

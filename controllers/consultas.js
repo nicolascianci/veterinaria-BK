@@ -44,14 +44,7 @@ const buscarConsultaText = async(req,res)=>{
     }
 }
 
-const buscarTodasConsultas = async(req,res)=>{
-    // const verify = jwt.verify(token, 'comision24i');
-    // if(!verify){
-    //     return res.json({
-    //         status: 400,
-    //         message: "Error en el token"
-    //     })
-    // }
+const buscarTodasConsultas = async(req,res)=>{    
 
     try{
         const consultas = await Consulta.find({})
@@ -83,14 +76,14 @@ const deleteConsulta = async(req,res) =>{
     catch(error){
         res.json({
             message: 'ERROR AL BUSCAR CONSULTAS',
-            error
+            error 
         })
     }
 }
 
 
 const ResponderConsulta = async(req,res) => {
-    const {_id,email,motivo,descripcion,resuelta} = req.body
+    const {_id,email,motivo,descripcion,resuelta} = req.body    
     
     try {
         

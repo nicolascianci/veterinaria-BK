@@ -15,7 +15,7 @@ const login = async(req, res) => {
   };
 
   const match = bcrypt.compareSync(password, user.password);
-  const token = jwt.sign({ user }, 'comision24i', { expiresIn: '1h' })
+  const token = jwt.sign({ user }, 'veterinaria', { expiresIn: '1h' })
 
   if (match) {
     return res.status(200).json({

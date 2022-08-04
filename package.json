@@ -1,6 +1,7 @@
 {
   "name": "veterinari-bk",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
@@ -13,7 +14,6 @@
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "debug": "^4.3.4",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jade": "^1.11.0",
@@ -22,14 +22,5 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.19",
     "path": "^0.12.7"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nicolascianci/veterinaria-BK.git"
-  },
-  "bugs": {
-    "url": "https://github.com/nicolascianci/veterinaria-BK/issues"
-  },
-  "homepage": "https://github.com/nicolascianci/veterinaria-BK#readme",
-  "description": ""
+  }
 }
